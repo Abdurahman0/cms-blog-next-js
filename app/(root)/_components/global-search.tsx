@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input"
 import { popularCategories, popularTags } from "@/constants"
 import { Search } from "lucide-react"
 
-const GlobalSearch = () => {
+function GlobalSearch() {
   return (
     <Drawer>
       <DrawerTrigger><div className="hover:bg-blue-400/20 cursor-pointer rounded-sm transition-colors flex items-center gap-1 px-3 py-2">

@@ -7,7 +7,7 @@ import { Menu} from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
-const Mobile = () => {
+function Mobile() {
   const pathname = usePathname()
 
   return (

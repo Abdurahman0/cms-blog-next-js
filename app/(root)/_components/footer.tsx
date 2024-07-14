@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input'
 import { User2 } from 'lucide-react'
 import React, { useState } from 'react'
 
-const Footer = () => {
+function Footer() {
   const [active, setActive] = useState(false)
 
   return (
