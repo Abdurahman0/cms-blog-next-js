@@ -1,22 +1,22 @@
-import BlogCard from '@/components/cards/blog'
-import { getBlogs } from '@/service/blog.service'
+import CategoriesTagsCard from '@/components/cards/categories-tags'
+import { getTags } from '@/service/tag.service'
 import { Dot, Home } from 'lucide-react'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import React from 'react'
 
 export const metadata: Metadata = {
-	title: 'All blogs',
+	title: 'All tags',
 }
 
-async function BlogsPage() {
-	const blogs = await getBlogs()
+async function Page() {
+	const tags = await getTags()
 
 	return (
 		<div className='max-w-6xl mx-auto'>
 			<div className='relative min-h-[40vh] flex items-center justify-end flex-col'>
-				<h2 className='text-center text-4xl section-title font-creteRound'>
-					<span>Blogs</span>
+				<h2 className='text-center text-4xl section-title font-creteRound mt-2'>
+					<span>Tags</span>
 				</h2>
 
 				<div className='flex gap-1 items-center mt-4'>
@@ -28,17 +28,17 @@ async function BlogsPage() {
 						Home
 					</Link>
 					<Dot />
-					<p className='text-muted-foreground'>Blogs</p>
+					<p className='text-muted-foreground'>Tags</p>
 				</div>
 			</div>
 
-			<div className='grid grid-cols-2 max-md:grid-cols-1 gap-x-4 gap-y-24 mt-24'>
-				{blogs.map(blog => (
-					<BlogCard key={blog.title} {...blog} isVertical />
+			<div className='grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 mt-24 gap-4'>
+				{tags.map(item => (
+					<CategoriesTagsCard key={item.slug} {...item} type='tags' />
 				))}
 			</div>
 		</div>
 	)
 }
 
-export default BlogsPage
+export default Page
